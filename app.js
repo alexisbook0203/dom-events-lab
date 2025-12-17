@@ -1,55 +1,48 @@
 /*-------------------------------- Constants --------------------------------*/
-
 /*-------------------------------- Variables --------------------------------*/
-
+let firstNumber = '';
+let secondNumber = '';
+let operator = '';
 /*------------------------ Cached Element References ------------------------*/
-
-/*----------------------------- Event Listeners -----------------------------*/
-
-/*-------------------------------- Functions --------------------------------*/
-
-
-const calculator = document.querySelector('#calculator');
-const addButtonOperator = document.querySelector('+')
-subtractButtonOperator = document.querySelector('-')
-mulitpyButtonOperator = document.querySelector('*')
-divideButtonOperator = document.querySelector('/')
-buttonNumber = document.querySelector('0-9')
-clearButtonOperator = document.querySelector('C')
-buttonEquals = document.querySelector('=')
-
-
-calculator.addEventListener('click', (value) => {
-
- console.log(event.target.innerText);
-
-  // Example
-  if (event.target.classList.contains('number')) {
-    // Do something with a number
-  }
-
-  // Example
-  if (event.target.innerText === '*') {
-    // Do something with this operator
-  }
-});
-
-
-
-
-
-addButtonOperator.addEventListener('click'), () => {
-  console.log(buttonNumber+buttonNumber);
-}
-subtractButtonOperator.addEventListener('click'), () =>
-mulitpyButtonOperator.addEventListener('click'), () =>
-divideButtonOperator.addEventListener('click'), () =>
-buttonNumber.addEventListener('click'), (0-9)
-clearButtonOperator.addEventListener('click'), () =>
-buttonEquals.addEventListener('click'),(){
-  
-}
-  
+ const calculator = document.querySelector('#calculator');
+ 
+ const display = document.querySelector('display')
  
 
+/*----------------------------- Event Listeners -----------------------------*/
+ calculator.addEventListener('click'),(event) =>{
+
+console.log(event.target.innerText);
+ }
+/*----------------------- Functions --------------------------------*/
+
+ if (event.target.classList.contains('number')) {
+    secondNumber += event.target.innerText;
+  display.innerText = secondNumber;
+  }
+ 
+  if (event.target.classList.contains('operator'))
+    {
+    firstNumber = secondNumber; operator =
+    event.target.innerText; secondNumber = '';
+  } 
+
+
+  if (event.target.innerText === '='){
+    const a = Number(firstNumber);
+    const b = Number(secondNumber);
+    let result; if(operator === '+') result = a + b; 
+    if(operator === '-') result = a - b;
+    if (operator === '*') result = a * b;
+    if(operator === '/') result = a / b;
+    display.innerText = result; secondNumber = result.toString(); firstNumber = ''; operator = '';
+  }
+
+
+  if(event.target.innerText === 'C'){
+    firstNumber =  ''; secondNumber = ''; operator = ''; display.innerText = '0';
+  }
+
+
+  
 
